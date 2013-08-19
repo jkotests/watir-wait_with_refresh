@@ -17,7 +17,7 @@ The wait methods can be added after requiring Watir:
 
 ```ruby
 require 'watir' #or 'watir-classic' or 'watir-webdriver'
-require 'watir/waitwithrefresh'
+require 'watir/wait_with_refresh'
 ```
 
 Refresh the page until an element is present:
