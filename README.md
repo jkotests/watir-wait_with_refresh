@@ -3,8 +3,22 @@ Watir::WaitWithRefresh
 
 Watir::WaitWithRefresh extends Watir to include methods that will refresh the page until or while an element is present or a block is true.
 
+Installation
+-----------
+
+```ruby
+gem install watir-wait_with_refresh
+```
+
 Usage
 -----------
+
+The wait methods can be added after requiring Watir:
+
+```ruby
+require 'watir' #or 'watir-classic' or 'watir-webdriver'
+require 'watir/waitwithrefresh'
+```
 
 Refresh the page until an element is present:
 
