@@ -49,3 +49,9 @@ Refresh the page while a block evaluates as true:
 ```ruby
 browser.refresh_while{ browser.div.present? }
 ```
+
+A timeout can also be specified for each of the methods:
+
+```ruby
+element.refresh_until_present(5)
+```
