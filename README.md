@@ -7,7 +7,7 @@ Installation
 -----------
 
 ```ruby
-gem install watir-wait_with_refresh
+gem install 'watir-wait_with_refresh'
 ```
 
 Usage
