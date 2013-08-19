@@ -53,4 +53,26 @@ describe "Element" do
       @browser.div(:id => 'clock').text.should == start_time
     end	
   end
+  
+  describe "#when_present_after_refresh" do
+    it "refresh page until an element is present" do
+      start_time = @browser.div(:id => 'clock').text
+      expected_end = Time.parse(start_time) + 10
+      expected_text = expected_end.strftime('%H:%M:%S')[0..-2]
+
+      @browser.div(:text => /^#{expected_text}/).when_present_after_refresh.text.should =~ /^#{expected_text}/
+    end
+    
+    it "raise timeout error when element does not exist" do
+      lambda{
+        @browser.div(:id => 'non_existent_id').when_present_after_refresh(5).click
+      }.should raise_exception Watir::WaitWithRefresh::TimeoutError
+    end
+
+    it "not refresh when the element is already present" do
+      start_time = @browser.div(:id => 'clock').text
+      sleep(1)
+      @browser.div(:id => 'clock').when_present_after_refresh.text.should == start_time
+    end
+  end
 end
